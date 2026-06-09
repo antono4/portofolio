@@ -1,463 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- AOS Scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <!--Font Awasome-->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!--Link ke css-->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Logo -->
-    <link rel="shortcut icon" href="img/logo.png" type="image/png">
-
-    <!--Google Font-->
-
-    <!--poppins-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Abril Fatface -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"> 
-
-    <!-- Lato -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
-
-    <title>Portofolio</title>
-  </head>
-  <body>
-    
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-item" href="#">Elv<span class="span">fi</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">about</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#project">project</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">skills</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <a href="#contact" class="btn">Contact Me</a>
-          </form>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antono - Principal Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">A<span class="logo-accent">.</span></a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge" data-aos="fade-up" data-aos-delay="100">
+          <span class="status-dot"></span><span>Available for opportunities</span>
+        </div>
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+          Building the future of<br><span class="gradient-text">distributed systems</span>
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+          Principal Engineer with expertise in cloud-native architecture, high-scale distributed systems, and DevSecOps practices.
+        </p>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+          <div class="stat"><span class="stat-value">8+</span><span class="stat-label">Years Experience</span></div>
+          <div class="stat"><span class="stat-value">50M+</span><span class="stat-label">Daily Transactions</span></div>
+          <div class="stat"><span class="stat-value">15</span><span class="stat-label">Team Members Led</span></div>
+        </div>
+        <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
+          <a href="#contact" class="btn btn-primary"><span>Get in Touch</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#projects" class="btn btn-secondary"><span>View Work</span><i class="fas fa-chevron-down"></i></a>
         </div>
       </div>
-    </nav>
-    <!-- A Navbar -->
-
-
-
-    <!-- Jumbotron -->
-    <section id="home">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid text">
-          <h2 class="display-4">about & contact</h2>
-          <h1 class="h1">Hi, I’m <span class="span elvina typed-text"></span><span class="cursor">&nbsp;</span></h1>
-          <h3 class="lead">UI/UX Designer and Web Developer</h3>
-          <!-- Sosial Media -->
-              <div class="sosial-media">
-                <!-- Instagram -->
-                  <a href="https://www.instagram.com/elvinaelvira.s/" target="blank"><i class="fab fa-instagram fa-2x"></i>
-                  </a>
-                <!-- Facebook -->
-                  <a href="https://m.facebook.com/elvina.firmansyah.50" target="blank"><i class="fab fa-facebook-f fa-2x"></i></a>
-                <!-- Twitter -->
-                  <a href="https://twitter.com/ElvinaFirmansy2" target="blank"><i class="fab fa-twitter fa-2x"></i></a>
-                <!-- Github -->
-                  <a href="https://github.com/elvinafirmansyah" target="blank"><i class="fab fa-github fa-2x"></i></a>
-                <!-- Dribble -->
-                <a href="https://dribbble.com/Elvina_Vin19" target="blank"><i class="fab fa-dribbble fa-2x"></i></a>
-              </div>
+      <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
+        <div class="code-window">
+          <div class="code-header">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-title">systems.go</span>
+          </div>
+          <pre class="code-content"><code><span class="code-keyword">package</span> main
+<span class="code-keyword">type</span> <span class="code-type">Engineer</span> <span class="code-struct">struct</span> { Name <span class="code-type">string</span> Level <span class="code-type">string</span> Focus []<span class="code-type">string</span> }
+<span class="code-keyword">func</span> <span class="code-func">BuildFuture</span>() { systems := []<span class="code-type">string</span>{ <span class="code-string">"Distributed"</span>, <span class="code-string">"Cloud-Native"</span>, <span class="code-string">"Resilient"</span> } <span class="code-comment">// Crafting the next standard</span> }</code></pre>
         </div>
       </div>
-    </section>
-    <!-- A Jumbotron -->
-
-    <!-- About -->
-    <section id="about">
-      <div class="container-fluid">
-        <div class="row justify-content-center d-flex align-items-center">
-          <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
-            <div class="text-capitalize text-about">
-              <h1>About <span>Me</span></h1>
-              <p>I’m Elvina Firmansyah who is 14 y.o. I'm from Indonesia, I'm interested to be a Fullstack developer. I'm currently learning Js and UI/UX that also make a new thing of the world, probably the carrer and my experience of my future</p>
-            </div>
-          </div> 
-          <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
-            <div class="about-img">
-              <img src="img/gambar.png" class="img-fluid" alt="" width="640">
-            </div>
+    </div>
+    <div class="scroll-indicator"><div class="mouse"><div class="wheel"></div></div></div>
+  </section>
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up"><span class="section-tag">About</span><h2 class="section-title">Crafting Digital Excellence</h2></div>
+      <div class="about-grid">
+        <div class="about-content" data-aos="fade-right">
+          <p class="about-text">I'm a Principal Engineer specializing in building resilient distributed systems and cloud-native architectures. With 8+ years of experience, I've led teams to deliver high-performance platforms serving millions of users daily.</p>
+          <p class="about-text">My focus is on creating infrastructure that scales globally while maintaining security and reliability. From Kubernetes orchestration to real-time data pipelines, I architect solutions that handle demanding workloads with elegance.</p>
+          <div class="about-highlights">
+            <div class="highlight"><i class="fas fa-check-circle"></i><span>Cloud-native architecture design</span></div>
+            <div class="highlight"><i class="fas fa-check-circle"></i><span>Distributed systems engineering</span></div>
+            <div class="highlight"><i class="fas fa-check-circle"></i><span>DevSecOps implementation</span></div>
+            <div class="highlight"><i class="fas fa-check-circle"></i><span>High-scale data pipelines</span></div>
+          </div>
+        </div>
+        <div class="about-image" data-aos="fade-left">
+          <div class="image-wrapper">
+            <div class="image-ring"></div>
+            <div class="image-inner"><img src="https://avatars.githubusercontent.com/u/73228642?v=4" alt="Antono" loading="lazy"></div>
+            <div class="floating-badge"><span class="badge-icon"><i class="fas fa-shield-halved"></i></span><span class="badge-text">Level 4 Clearance</span></div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- A About -->
-
-    <!-- Selected Project -->
-  <section id="project">
-    <div class="container-fluid">
-      <div class="title-project">
-        <h1 class="project-isi">My <span>Project</span></h1>
-      </div>
-    </div>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner justify-content-center">
-        <div class="carousel-item active justify-content-center d-flex">
-          <a href="https://engxzu.netlify.app/" target="blank"><img src="img/web7.png" class="d-block w-85 img-fluid" alt="Engxzu"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://https-github-com-elvirafimansyah.github.io/Korean-Food/" target="blank"><img src="img/kfood.png" class="d-block w-85 img-fluid" alt="Korean-Food"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://elvinafirmansyah.github.io/VIZFA/" target="blank"><img src="img/web5.png" class="d-block w-85 img-fluid" alt="Vinzfa"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://dribbble.com/shots/16310150-Belxacy-Find-your-Perfect-Color" target="blank"><img src="img/belaxcy.png" class="d-block w-85 img-fluid" alt="Belxacy"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://dribbble.com/shots/16250626-Vencvel-Makes-it-Easy-for-you-to-Travel" target="blank" ><img src="img/vencvel.png" class="d-block w-85 img-fluid" alt="Vencvel"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://dribbble.com/shots/16408144-Management-Project-Task-UI-Design-by-Elvina" target="blank" ><img src="img/mobile3.png" class="d-block w-85 img-fluid" alt="Management-Project-Task-UI-Design-by-Elvina"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://dictionorycdn.vercel.app/" target="blank" ><img src="img/web4.png" class="d-block w-85 img-fluid" alt="Dictionory api"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://vinaquote.netlify.app/" target="blank" ><img src="img/web6.png" class="d-block w-85 img-fluid" alt="Quote"></a>
-        </div>
-        <div class="carousel-item justify-content-center d-flex">
-          <a href="https://dribbble.com/shots/16344929-Dierex-Electro-Chat-Fast-and-Easy-for-You" target="blank" ><img src="https://cdn.dribbble.com/users/8652445/screenshots/16344929/media/d96119dbe827da774056b646ea4f98ee.png" class="d-block w-85 img-fluid" alt="..."></a>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </section>
-    <!-- A Selected Project -->
-
-    <!-- Skills & Tools -->
-    <section id="skills">
-      <div class="container-fluid">
-        <div class="title-skills">
-          <h1>Skills <span>& Tools</span></h1>
+  <section class="tech-stack" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up"><span class="section-tag">Expertise</span><h2 class="section-title">Tech Stack</h2></div>
+      <div class="tech-categories">
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="100"><div class="category-header"><i class="fas fa-cloud"></i><h3>Cloud & Infrastructure</h3></div><div class="tech-items"><span class="tech-item">Kubernetes</span><span class="tech-item">AWS</span><span class="tech-item">Terraform</span><span class="tech-item">Docker</span><span class="tech-item">Istio</span></div></div>
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="200"><div class="category-header"><i class="fas fa-server"></i><h3>Backend & Systems</h3></div><div class="tech-items"><span class="tech-item">Go</span><span class="tech-item">Rust</span><span class="tech-item">Node.js</span><span class="tech-item">gRPC</span><span class="tech-item">PostgreSQL</span></div></div>
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="300"><div class="category-header"><i class="fas fa-database"></i><h3>Data & Messaging</h3></div><div class="tech-items"><span class="tech-item">Apache Kafka</span><span class="tech-item">Redis</span><span class="tech-item">Elasticsearch</span><span class="tech-item">Prometheus</span></div></div>
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="400"><div class="category-header"><i class="fas fa-lock"></i><h3>Security & DevOps</h3></div><div class="tech-items"><span class="tech-item">Vault</span><span class="tech-item">GitOps</span><span class="tech-item">PCI-DSS</span><span class="tech-item">CI/CD</span></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up"><span class="section-tag">Career</span><h2 class="section-title">Experience</h2></div>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-period">2023 — Present</span><span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Singapore / Hybrid</span></div>
+            <h3 class="timeline-title">Principal Engineer</h3>
+            <p class="timeline-company">Quantum Systems International</p>
+            <p class="timeline-description">Lead architect for AI-powered data orchestration platform. Managing a team of 15 engineers building real-time data pipelines with high scalability requirements.</p>
+            <div class="timeline-achievements">
+              <div class="achievement"><i class="fas fa-rocket"></i><span>250% system throughput optimization using Go concurrency patterns</span></div>
+              <div class="achievement"><i class="fas fa-coins"></i><span>40% AWS cost reduction through Spot Instances and K8s optimization</span></div>
+              <div class="achievement"><i class="fas fa-chart-line"></i><span>Reduced bug detection time from 45 min to 2 min with observability stack</span></div>
+            </div>
+          </div>
         </div>
-        <div class="row gambar-skills">
-          <div class="col-lg-3 col-md-6">
-            <div class="main-card">
-              <img src="img/flogo.png" class="rounded" alt="...">
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="main-card">
-              <img src="img/alogo.png" class="rounded" alt="...">
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="main-card">
-              <img src="img/hlogo.png" class="rounded" alt="...">
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="main-card">
-              <img src="img/clogo.png" class="rounded" alt="...">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-period">2020 — 2023</span><span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</span></div>
+            <h3 class="timeline-title">Senior Cloud Architect</h3>
+            <p class="timeline-company">Fintech Horizon Asia</p>
+            <p class="timeline-description">Designed core payment system migration from monolith to microservices. Focused on data consistency and high availability for financial transactions.</p>
+            <div class="timeline-achievements">
+              <div class="achievement"><i class="fas fa-shield-halved"></i><span>99.99% availability for 50M daily transactions payment system</span></div>
+              <div class="achievement"><i class="fas fa-network-wired"></i><span>Implemented advanced Service Mesh (Istio) for inter-service security</span></div>
+              <div class="achievement"><i class="fas fa-certificate"></i><span>Led PCI-DSS Level 1 compliance certification for cloud infrastructure</span></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- A Skills & Tools -->
-
-    <!-- Promise -->
-    <section id="promise">
-      <div class="container-fluid">
-        <div class="promise-title">
-          <h1>Four <span>thing</span> i always <span>promise</span></h1>
-        </div>
-        <div class="row datar-promise d-flex justify-content-center">
-          <div class="col-lg-6 col-md-6 isi-card d-flex justify-content-center">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">one time revision</h5>
-                <p class="card-text">All of the revision will updated on time. But with best design quality that can make you safety.</p>
-              </div>
-            </div>
+    </div>
+  </section>
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up"><span class="section-tag">Portfolio</span><h2 class="section-title">Featured Projects</h2></div>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100"><div class="project-image"><img src="img/web7.png" alt="Engxzu Project" loading="lazy"><div class="project-overlay"><a href="https://engxzu.netlify.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Web Application</span><h3 class="project-title">Engxzu Platform</h3><p class="project-description">Full-stack web platform with modern design and responsive interface.</p><div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div></div></div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200"><div class="project-image"><img src="img/kfood.png" alt="Korean Food Project" loading="lazy"><div class="project-overlay"><a href="https://https-github-com-elvirafimansyah.github.io/Korean-Food/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Landing Page</span><h3 class="project-title">Korean Food Gallery</h3><p class="project-description">Interactive landing page showcasing Korean cuisine with elegant visuals.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300"><div class="project-image"><img src="img/web5.png" alt="Vinzfa Project" loading="lazy"><div class="project-overlay"><a href="https://elvinafirmansyah.github.io/VIZFA/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Dashboard</span><h3 class="project-title">Vinzfa Analytics</h3><p class="project-description">Analytics dashboard with data visualization and real-time metrics.</p><div class="project-tags"><span>Vue.js</span><span>D3.js</span><span>API</span></div></div></div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="400"><div class="project-image"><img src="img/belaxcy.png" alt="Belxacy Design" loading="lazy"><div class="project-overlay"><a href="https://dribbble.com/shots/16310150-Belxacy-Find-your-Perfect-Color" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">UI Design</span><h3 class="project-title">Belxacy Color Picker</h3><p class="project-description">Modern UI design for color selection tool with intuitive interface.</p><div class="project-tags"><span>Figma</span><span>UI/UX</span><span>Design</span></div></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info" data-aos="fade-right">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Let's Work Together</h2>
+          <p class="contact-text">I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!</p>
+          <div class="contact-details">
+            <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-data"><span class="contact-label">Email</span><a href="mailto:hello@antono.dev" class="contact-value">hello@antono.dev</a></div></div>
+            <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-data"><span class="contact-label">Phone</span><span class="contact-value">+62 21 026 2026</span></div></div>
+            <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-data"><span class="contact-label">Location</span><span class="contact-value">Jakarta Digital District</span></div></div>
           </div>
-          <div class="col-lg-6 col-md-6 isi-card d-flex justify-content-center">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">design you'll like</h5>
-                <p class="card-text">This is What i love to do, so I’ll make sure you’re happy with the result. We’ll work as team and we’ll get a new target.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 isi-card d-flex justify-content-center">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Good Comunication</h5>
-                <p class="card-text">Communication is definitely the most important in work, i can speak english a little bit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 isi-card d-flex justify-content-center">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Healty Relationship</h5>
-                <p class="card-text">No dramas or difficult relationships. I’m here to make your life easier, solve your problems, and grow your bussiness.</p>
-              </div>
-            </div>
+          <div class="social-links">
+            <a href="https://github.com/antono4" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/antono" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/antonocode" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://dribbble.com" target="_blank" class="social-link" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- A Promise -->
-
-    <!-- Testimonial-->
-    <section id="testimonial">
-      <div class="container-fluid">
-        <div class="row justify-content-center d-flex row-testi">
-          <div class="col-lg-5 one">
-              <i class="fas fa-quote-left fa-4x"></i>
-              <h4>work with alena is such a happiness for me. She is very humble, smart and helpful.  I recommended her to you guys who needs a design stuff.</h4>
-              <h2>Audie Canrbre</h2>  
-          </div>
-          <div class="col-lg-5 two">
-            <div class="img-testi">
-              <img src="img/pointing.png" width="500" class="img-fluid" alt="">
-            </div>
-          </div>
+        <div class="contact-form-wrapper" data-aos="fade-left">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="Project inquiry"></div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+            <button type="submit" class="btn btn-primary btn-submit"><span>Send Message</span><i class="fas fa-paper-plane"></i></button>
+          </form>
+          <div class="form-status" id="formStatus"></div>
         </div>
       </div>
-    </section>
-    <!-- A Testimonial -->
-
-    <!-- Contact -->
-    <section id="contact" style=>
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="contact-title">
-                  <h1>Contact <span>Me</span></h1>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-5 justify-content-center d-flex img-contact">
-                  <img src="img/email.png" class="img-fluid" alt="" width="422">
-                </div>
-                <div class="col-lg-7 d-flex justify-content-center">
-                  <div class="col-md-6">
-                    <div class="alert alert-info alert-dismissible fade show my-alert d-none" role="alert">
-                        <strong>Thank You!</strong> We have received your message.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <form name='contact-my-website'>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                          <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-kirim send float-end">Send</button>
-
-                        <button class="btn-load btn-loading float-end d-none" type="button" disabled>
-                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                            Loading...
-                        </button>
-                    </form>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- A Contact -->
-
-    <!-- Footer -->
-    <footer class="text-center text-lg-start d-flex justify-content-between">
-      <!-- Copyright -->
-      <div class="text-center p-3 footer">
-        <a class="text-dark fs-6" href="https://www.buymeacoffee.com/elvinafirmh">@2022 Copyright</a>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand"><a href="#" class="logo">A<span class="logo-accent">.</span></a><p>Crafting the next standard in distributed systems.</p></div>
+        <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+        <div class="footer-bottom"><p>&copy; 2024 Antono. All rights reserved.</p><div class="footer-status"><span class="status-indicator"></span><span>Systems operational</span></div></div>
       </div>
-      <!-- Buy Me A Coffee -->
-      <div class="text-center p-3 footer">
-        <i class="bi bi-cup-straw fs-5"></i>
-        <a class="text-dark fs-6" href="https://www.buymeacoffee.com/elvinafirmh" target="_blank">Buy me a Coffee</a>
-      </div>
-    </footer>
-    <!-- A Footer -->
-
-
-    <script>
-
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyryaU-KiFb08lpVh-oX93cfQUVIY0eqyBaOvOTH4bNhMmSThbh1AUxTV34DVG1GoQMNQ/exec'
-        const form = document.forms['contact-my-website']
-        const btnKirim = document.querySelector('.btn-kirim');
-        const btnLoading = document.querySelector('.btn-loading');
-        const btnDAlert = document.querySelector('.my-alert');
-
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        // ketika tombol submit di klik 
-        // tampilkan tombol loading , hilangkan tombol kirim
-        btnLoading.classList.toggle("d-none");
-        btnKirim.classList.toggle("d-none");
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                // tampilkan tombol kirim , hilangkan tombol loading
-                btnLoading.classList.toggle("d-none");
-                btnKirim.classList.toggle("d-none");
-                // tampilkan alert
-                btnDAlert.classList.toggle('d-none');
-                // reset tulisan input form nya
-                form.reset()
-                console.log('Success!', response)})
-            .catch(error => console.error('Error!', error.message))
-        })
-    </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('ul li a').click(function(){
-                $('li a').removeClass("active");
-                $(this).addClass("active");
-            });
-        });
-    </script>
-
-    <!-- Script untuk menghilangkan navigasi collapse jika dikilk akan hilang -->
-
-    <script type="text/javascript">    
-        $('.js-scroll-trigger').click(function() {
-            $('.navbar-collapse').collapse('hide');
-        });
-    </script>
-
-    <!-- Akhir -->
-
-    <!-- fungsi script adalah membuat hover card ke atas -->
-    <script>
-        $(document).ready(function(){
-
-            $('.col-md-4').hover(
-                //trigger ketika mouse di sentuh
-                function(){
-                    $(this).animate({
-                        marginTop: "-=1%",
-                    },200);
-                },
-
-                //trigger  when mouse out
-                function(){
-                    $(this).animate({
-                        marginTop: "0%"
-                    },200);
-                }
-            );
-        });
-    </script>
-
-
-    <script>
-      const typedTextSpan = document.querySelector(".typed-text");
-      const cursorSpan = document.querySelector(".cursor");
-
-      const textArray = ["Elvina"];
-      const typingDelay = 100;
-      const erasingDelay = 100;
-      const newTextDelay = 2500; // Delay between current and next text
-      let textArrayIndex = 0;
-      let charIndex = 0;
-
-      function type() {
-        if (charIndex < textArray[textArrayIndex].length) {
-          if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-          typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-          charIndex++;
-          setTimeout(type, typingDelay);
-        } 
-        else {
-          cursorSpan.classList.remove("typing");
-            setTimeout(erase, newTextDelay);
-        }
-      }
-
-      function erase() {
-          if (charIndex > 0) {
-          if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-          typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-          charIndex--;
-          setTimeout(erase, erasingDelay);
-        } 
-        else {
-          cursorSpan.classList.remove("typing");
-          textArrayIndex++;
-          if(textArrayIndex>=textArray.length) textArrayIndex=0;
-          setTimeout(type, typingDelay + 1100);
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
-        if(textArray.length) setTimeout(type, newTextDelay + 250);
-      });
-     </script>
-
-
-     <!-- navbar scroll -->
-     <script>
-      document.addEventListener("scroll", function () {
-        const navbar = document.querySelector("nav");
-
-        if (this.body.scrollTop > 1 || this.documentElement.scrollTop > 1) {
-          navbar.classList.add("nav-scrolled", "fixed-top");
-        } else {
-          navbar.classList.remove("nav-scrolled", "fixed-top");
-        }
-      });
-    </script>   
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:800,easing:'ease-out',once:true,offset:100});
+    const mobileToggle=document.getElementById('mobileToggle'),navMenu=document.getElementById('navMenu');
+    mobileToggle.addEventListener('click',()=>{mobileToggle.classList.toggle('active');navMenu.classList.toggle('active');});
+    document.querySelectorAll('.nav-link').forEach(link=>{link.addEventListener('click',()=>{mobileToggle.classList.remove('active');navMenu.classList.remove('active');});});
+    const navbar=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50);});
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const target=document.querySelector(this.getAttribute('href'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}});});
+    const contactForm=document.getElementById('contactForm'),formStatus=document.getElementById('formStatus');
+    contactForm.addEventListener('submit',async(e)=>{e.preventDefault();const submitBtn=contactForm.querySelector('.btn-submit');
+    submitBtn.innerHTML='<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';submitBtn.disabled=true;
+    await new Promise(resolve=>setTimeout(resolve,1500));
+    formStatus.innerHTML='<div class="success-message"><i class="fas fa-check-circle"></i><span>Message sent successfully! I will get back to you soon.</span></div>';
+    formStatus.classList.add('show');contactForm.reset();
+    submitBtn.innerHTML='<span>Send Message</span><i class="fas fa-paper-plane"></i>';submitBtn.disabled=false;
+    setTimeout(()=>{formStatus.classList.remove('show');},5000);});
+  </script>
+</body>
 </html>
-
