@@ -93,83 +93,114 @@
       position: relative;
       transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    
     /* Wind/Blown Text Effect */
-    .wind-text {
-      display: inline-block;
-      transition: transform 0.3s ease;
+    .hero-title {
+      overflow: visible;
     }
-    
+
+    .wind-text {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: flex-start;
+    }
+
     .wind-text span {
       display: inline-block;
-      animation: windBlow 3s ease-in-out infinite;
-      transform-origin: left center;
+      animation: windBlow 2.5s ease-in-out infinite;
+      transform-origin: bottom center;
+      will-change: transform;
     }
-    
+
     .wind-text span:nth-child(1) { animation-delay: 0s; }
-    .wind-text span:nth-child(2) { animation-delay: 0.05s; }
-    .wind-text span:nth-child(3) { animation-delay: 0.1s; }
-    .wind-text span:nth-child(4) { animation-delay: 0.15s; }
-    .wind-text span:nth-child(5) { animation-delay: 0.2s; }
-    .wind-text span:nth-child(6) { animation-delay: 0.25s; }
-    .wind-text span:nth-child(7) { animation-delay: 0.3s; }
-    .wind-text span:nth-child(8) { animation-delay: 0.35s; }
-    .wind-text span:nth-child(9) { animation-delay: 0.4s; }
-    .wind-text span:nth-child(10) { animation-delay: 0.45s; }
-    .wind-text span:nth-child(11) { animation-delay: 0.5s; }
-    .wind-text span:nth-child(12) { animation-delay: 0.55s; }
-    .wind-text span:nth-child(13) { animation-delay: 0.6s; }
-    .wind-text span:nth-child(14) { animation-delay: 0.65s; }
-    .wind-text span:nth-child(15) { animation-delay: 0.7s; }
-    .wind-text span:nth-child(16) { animation-delay: 0.75s; }
-    .wind-text span:nth-child(17) { animation-delay: 0.8s; }
-    .wind-text span:nth-child(18) { animation-delay: 0.85s; }
-    .wind-text span:nth-child(19) { animation-delay: 0.9s; }
-    .wind-text span:nth-child(20) { animation-delay: 0.95s; }
-    .wind-text span:nth-child(21) { animation-delay: 1s; }
-    .wind-text span:nth-child(22) { animation-delay: 1.05s; }
-    .wind-text span:nth-child(23) { animation-delay: 1.1s; }
-    .wind-text span:nth-child(24) { animation-delay: 1.15s; }
-    .wind-text span:nth-child(25) { animation-delay: 1.2s; }
-    .wind-text span:nth-child(26) { animation-delay: 1.25s; }
-    .wind-text span:nth-child(27) { animation-delay: 1.3s; }
-    .wind-text span:nth-child(28) { animation-delay: 1.35s; }
-    .wind-text span:nth-child(29) { animation-delay: 1.4s; }
-    .wind-text span:nth-child(30) { animation-delay: 1.45s; }
-    
+    .wind-text span:nth-child(2) { animation-delay: 0.08s; }
+    .wind-text span:nth-child(3) { animation-delay: 0.16s; }
+    .wind-text span:nth-child(4) { animation-delay: 0.24s; }
+    .wind-text span:nth-child(5) { animation-delay: 0.32s; }
+    .wind-text span:nth-child(6) { animation-delay: 0.40s; }
+    .wind-text span:nth-child(7) { animation-delay: 0.48s; }
+    .wind-text span:nth-child(8) { animation-delay: 0.56s; }
+    .wind-text span:nth-child(9) { animation-delay: 0.64s; }
+    .wind-text span:nth-child(10) { animation-delay: 0.72s; }
+    .wind-text span:nth-child(11) { animation-delay: 0.80s; }
+    .wind-text span:nth-child(12) { animation-delay: 0.88s; }
+    .wind-text span:nth-child(13) { animation-delay: 0.96s; }
+    .wind-text span:nth-child(14) { animation-delay: 1.04s; }
+    .wind-text span:nth-child(15) { animation-delay: 1.12s; }
+    .wind-text span:nth-child(16) { animation-delay: 1.20s; }
+    .wind-text span:nth-child(17) { animation-delay: 1.28s; }
+    .wind-text span:nth-child(18) { animation-delay: 1.36s; }
+    .wind-text span:nth-child(19) { animation-delay: 1.44s; }
+    .wind-text span:nth-child(20) { animation-delay: 1.52s; }
+    .wind-text span:nth-child(21) { animation-delay: 1.60s; }
+    .wind-text span:nth-child(22) { animation-delay: 1.68s; }
+    .wind-text span:nth-child(23) { animation-delay: 1.76s; }
+    .wind-text span:nth-child(24) { animation-delay: 1.84s; }
+    .wind-text span:nth-child(25) { animation-delay: 1.92s; }
+    .wind-text span:nth-child(26) { animation-delay: 2.00s; }
+    .wind-text span:nth-child(27) { animation-delay: 2.08s; }
+    .wind-text span:nth-child(28) { animation-delay: 2.16s; }
+    .wind-text span:nth-child(29) { animation-delay: 2.24s; }
+    .wind-text span:nth-child(30) { animation-delay: 2.32s; }
+
     @keyframes windBlow {
       0%, 100% { 
-        transform: translateY(0) rotate(0deg); 
+        transform: translateY(0) rotate(0deg) skewX(0deg);
+        filter: blur(0px);
       }
-      10% { 
-        transform: translateY(-2px) rotate(-3deg); 
-      }
-      20% { 
-        transform: translateY(-1px) rotate(-2deg); 
+      15% { 
+        transform: translateY(-3px) rotate(-5deg) skewX(-2deg);
+        filter: blur(0.5px);
       }
       30% { 
-        transform: translateY(-3px) rotate(-4deg); 
+        transform: translateY(-2px) rotate(-3deg) skewX(-1deg);
+        filter: blur(0px);
       }
-      40% { 
-        transform: translateY(-1px) rotate(-1deg); 
-      }
-      50% { 
-        transform: translateY(-2px) rotate(-3deg); 
+      45% { 
+        transform: translateY(-4px) rotate(-6deg) skewX(-2deg);
+        filter: blur(0.3px);
       }
       60% { 
-        transform: translateY(0) rotate(-1deg); 
+        transform: translateY(-1px) rotate(-2deg) skewX(0deg);
+        filter: blur(0px);
       }
-      70% { 
-        transform: translateY(-2px) rotate(-2deg); 
-      }
-      80% { 
-        transform: translateY(-1px) rotate(-1deg); 
+      75% { 
+        transform: translateY(-3px) rotate(-4deg) skewX(-1deg);
+        filter: blur(0.2px);
       }
       90% { 
-        transform: translateY(0) rotate(0deg); 
+        transform: translateY(0) rotate(-1deg) skewX(0deg);
+        filter: blur(0px);
       }
     }
-    
+
+    /* Enhanced gradient text with wind effect */
+    .gradient-text.wind-text span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--accent-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Wind blur effect on active */
+    .wind-text.active span {
+      animation: windBlow 1.5s ease-in-out infinite;
+    }
+
+    /* Stronger wind on hover */
+    .hero-title:hover .wind-text span {
+      animation: windBlow 1s ease-in-out infinite;
+    }
+
+    /* Add wind trail shadow */
+    .wind-text span {
+      text-shadow: none;
+      transition: text-shadow 0.3s ease;
+    }
+
+    .wind-text span:hover {
+      text-shadow: -3px 0 8px rgba(99, 102, 241, 0.5), 3px 0 8px rgba(34, 211, 238, 0.3);
+    }
     /* Wind Lines Animation */
     .wind-lines {
       position: absolute;
