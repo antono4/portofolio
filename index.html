@@ -3,55 +3,411 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antono - Principal Engineer - Fixed</title>
+  <title>Antono - Principal Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Particle Canvas */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    /* Animated gradient background */
+    .hero-bg {
+      background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #0f172a);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Floating orbs */
+    .floating-orbs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+    
+    .orb-2 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #06b6d4, #22d3ee);
+      top: 50%;
+      right: -50px;
+      animation-delay: -5s;
+    }
+    
+    .orb-3 {
+      width: 350px;
+      height: 350px;
+      background: linear-gradient(135deg, #ec4899, #f472b6);
+      bottom: -100px;
+      left: 30%;
+      animation-delay: -10s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(-30px, -20px) scale(1.02); }
+    }
+    
+    /* Magnetic button effect */
+    .btn-magnetic {
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    /* Glow effect on hover */
+    .glow-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .glow-hover:hover {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(99, 102, 241, 0.2);
+    }
+    
+    /* Custom cursor */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, border-color 0.3s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-follower {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+    }
+    
+    .cursor.hover {
+      transform: scale(2);
+      border-color: var(--accent);
+    }
+    
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent), var(--accent-secondary));
+      z-index: 9999;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+    
+    /* Loading animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-text {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    .loader-bar {
+      width: 200px;
+      height: 4px;
+      background: var(--dark-secondary);
+      border-radius: 2px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    
+    .loader-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      animation: loading 2s ease-in-out forwards;
+    }
+    
+    @keyframes loading {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+    
+    /* Glitch effect for title */
+    .glitch {
+      position: relative;
+    }
+    
+    .glitch:hover::before,
+    .glitch:hover::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+    }
+    
+    .glitch:hover::before {
+      color: #ff00ff;
+      animation: glitch-1 0.3s infinite linear alternate-reverse;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+      left: 2px;
+    }
+    
+    .glitch:hover::after {
+      color: #00ffff;
+      animation: glitch-2 0.3s infinite linear alternate-reverse;
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+      left: -2px;
+    }
+    
+    @keyframes glitch-1 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+    
+    @keyframes glitch-2 {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(2px, -2px); }
+      40% { transform: translate(2px, 2px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(-2px, 2px); }
+    }
+    
+    /* Animated underline */
+    .animated-underline {
+      position: relative;
+    }
+    
+    .animated-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.3s ease;
+    }
+    
+    .animated-underline:hover::after {
+      width: 100%;
+    }
+    
+    /* Counter animation */
+    .counter {
+      display: inline-block;
+    }
+    
+    /* Section transition */
+    .section-animate {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
+    }
+    
+    .section-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Heart pulse animation */
+    .heart-pulse {
+      animation: heartBeat 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    /* Glow text */
+    .glow-text {
+      animation: glowPulse 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glowPulse {
+      from { text-shadow: 0 0 10px rgba(99, 102, 241, 0.5); }
+      to { text-shadow: 0 0 20px rgba(99, 102, 241, 0.8), 0 0 30px rgba(99, 102, 241, 0.4); }
+    }
+    
+    /* Image zoom on hover */
+    .img-zoom {
+      overflow: hidden;
+    }
+    
+    .img-zoom img {
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .img-zoom:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Ripple effect */
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ripple::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+    
+    .ripple:active::after {
+      width: 300px;
+      height: 300px;
+    }
+    
+    /* Hide cursor on touch devices */
+    @media (hover: none) {
+      .cursor, .cursor-follower { display: none; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-text">A.</div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+  
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  
+  <!-- Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
+  
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">A<span class="logo-accent">.</span></a>
+      <a href="#" class="logo glow-text">A<span class="logo-accent">.</span></a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#home" class="nav-link animated-underline">Home</a></li>
+        <li><a href="#about" class="nav-link animated-underline">About</a></li>
+        <li><a href="#experience" class="nav-link animated-underline">Experience</a></li>
+        <li><a href="#projects" class="nav-link animated-underline">Projects</a></li>
+        <li><a href="#contact" class="nav-link animated-underline">Contact</a></li>
       </ul>
     </div>
   </nav>
+  
   <section class="hero" id="home">
     <div class="hero-bg"></div>
+    <div class="floating-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge" data-aos="fade-up" data-aos-delay="100">
-          <span class="status-dot"></span><span>Available for opportunities</span>
+          <span class="status-dot heart-pulse"></span><span>Available for opportunities</span>
         </div>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
-          Building the future of<br><span class="gradient-text">distributed systems</span>
+        <h1 class="hero-title glitch" data-text="Building the future of distributed systems">
+          Building the future of<br><span class="gradient-text glow-text">distributed systems</span>
         </h1>
         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
           Principal Engineer with expertise in cloud-native architecture, high-scale distributed systems, and DevSecOps practices.
         </p>
         <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-          <div class="stat"><span class="stat-value">8+</span><span class="stat-label">Years Experience</span></div>
-          <div class="stat"><span class="stat-value">50M+</span><span class="stat-label">Daily Transactions</span></div>
-          <div class="stat"><span class="stat-value">15</span><span class="stat-label">Team Members Led</span></div>
+          <div class="stat"><span class="stat-value"><span class="counter" data-target="8">0</span>+</span><span class="stat-label">Years Experience</span></div>
+          <div class="stat"><span class="stat-value"><span class="counter" data-target="50">0</span>M+</span><span class="stat-label">Daily Transactions</span></div>
+          <div class="stat"><span class="stat-value"><span class="counter" data-target="15">0</span></span><span class="stat-label">Team Members Led</span></div>
         </div>
         <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-          <a href="#contact" class="btn btn-primary"><span>Get in Touch</span><i class="fas fa-arrow-right"></i></a>
-          <a href="#projects" class="btn btn-secondary"><span>View Work</span><i class="fas fa-chevron-down"></i></a>
+          <a href="#contact" class="btn btn-primary btn-magnetic ripple"><span>Get in Touch</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#projects" class="btn btn-secondary btn-magnetic ripple"><span>View Work</span><i class="fas fa-chevron-down"></i></a>
         </div>
       </div>
       <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
-        <div class="code-window">
+        <div class="code-window glow-hover">
           <div class="code-header">
             <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
             <span class="code-title">systems.go</span>
@@ -64,7 +420,8 @@
     </div>
     <div class="scroll-indicator"><div class="mouse"><div class="wheel"></div></div></div>
   </section>
-  <section class="about" id="about">
+  
+  <section class="about section-animate" id="about">
     <div class="container">
       <div class="section-header" data-aos="fade-up"><span class="section-tag">About</span><h2 class="section-title">Crafting Digital Excellence</h2></div>
       <div class="about-grid">
@@ -72,79 +429,73 @@
           <p class="about-text">I'm a Principal Engineer specializing in building resilient distributed systems and cloud-native architectures. With 8+ years of experience, I've led teams to deliver high-performance platforms serving millions of users daily.</p>
           <p class="about-text">My focus is on creating infrastructure that scales globally while maintaining security and reliability. From Kubernetes orchestration to real-time data pipelines, I architect solutions that handle demanding workloads with elegance.</p>
           <div class="about-highlights">
-            <div class="highlight"><i class="fas fa-check-circle"></i><span>Cloud-native architecture design</span></div>
-            <div class="highlight"><i class="fas fa-check-circle"></i><span>Distributed systems engineering</span></div>
-            <div class="highlight"><i class="fas fa-check-circle"></i><span>DevSecOps implementation</span></div>
-            <div class="highlight"><i class="fas fa-check-circle"></i><span>High-scale data pipelines</span></div>
+            <div class="highlight glow-hover"><i class="fas fa-check-circle"></i><span>Cloud-native architecture design</span></div>
+            <div class="highlight glow-hover"><i class="fas fa-check-circle"></i><span>Distributed systems engineering</span></div>
+            <div class="highlight glow-hover"><i class="fas fa-check-circle"></i><span>DevSecOps implementation</span></div>
+            <div class="highlight glow-hover"><i class="fas fa-check-circle"></i><span>High-scale data pipelines</span></div>
           </div>
         </div>
         <div class="about-image" data-aos="fade-left">
           <div class="image-wrapper">
             <div class="image-ring"></div>
-            <div class="image-inner"><img src="https://avatars.githubusercontent.com/u/73228642?v=4" alt="Antono" loading="lazy"></div>
-            <div class="floating-badge"><span class="badge-icon"><i class="fas fa-shield-halved"></i></span><span class="badge-text">Level 4 Clearance</span></div>
+            <div class="image-inner img-zoom"><img src="https://avatars.githubusercontent.com/u/73228642?v=4" alt="Antono" loading="lazy"></div>
+            <div class="floating-badge glow-hover"><span class="badge-icon"><i class="fas fa-shield-halved"></i></span><span class="badge-text">Level 4 Clearance</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="tech-stack" id="skills">
+  
+  <section class="tech-stack section-animate" id="skills">
     <div class="container">
       <div class="section-header" data-aos="fade-up"><span class="section-tag">Expertise</span><h2 class="section-title">Tech Stack</h2></div>
       <div class="tech-categories">
-        <div class="tech-category" data-aos="fade-up" data-aos-delay="100"><div class="category-header"><i class="fas fa-cloud"></i><h3>Cloud & Infrastructure</h3></div><div class="tech-items"><span class="tech-item">Kubernetes</span><span class="tech-item">AWS</span><span class="tech-item">Terraform</span><span class="tech-item">Docker</span><span class="tech-item">Istio</span></div></div>
-        <div class="tech-category" data-aos="fade-up" data-aos-delay="200"><div class="category-header"><i class="fas fa-server"></i><h3>Backend & Systems</h3></div><div class="tech-items"><span class="tech-item">Go</span><span class="tech-item">Rust</span><span class="tech-item">Node.js</span><span class="tech-item">gRPC</span><span class="tech-item">PostgreSQL</span></div></div>
-        <div class="tech-category" data-aos="fade-up" data-aos-delay="300"><div class="category-header"><i class="fas fa-database"></i><h3>Data & Messaging</h3></div><div class="tech-items"><span class="tech-item">Apache Kafka</span><span class="tech-item">Redis</span><span class="tech-item">Elasticsearch</span><span class="tech-item">Prometheus</span></div></div>
-        <div class="tech-category" data-aos="fade-up" data-aos-delay="400"><div class="category-header"><i class="fas fa-lock"></i><h3>Security & DevOps</h3></div><div class="tech-items"><span class="tech-item">Vault</span><span class="tech-item">GitOps</span><span class="tech-item">PCI-DSS</span><span class="tech-item">CI/CD</span></div></div>
+        <div class="tech-category glow-hover" data-aos="fade-up" data-aos-delay="100"><div class="category-header"><i class="fas fa-cloud"></i><h3>Cloud & Infrastructure</h3></div><div class="tech-items"><span class="tech-item">Kubernetes</span><span class="tech-item">AWS</span><span class="tech-item">Terraform</span><span class="tech-item">Docker</span><span class="tech-item">Istio</span></div></div>
+        <div class="tech-category glow-hover" data-aos="fade-up" data-aos-delay="200"><div class="category-header"><i class="fas fa-server"></i><h3>Backend & Systems</h3></div><div class="tech-items"><span class="tech-item">Go</span><span class="tech-item">Rust</span><span class="tech-item">Node.js</span><span class="tech-item">gRPC</span><span class="tech-item">PostgreSQL</span></div></div>
+        <div class="tech-category glow-hover" data-aos="fade-up" data-aos-delay="300"><div class="category-header"><i class="fas fa-database"></i><h3>Data & Messaging</h3></div><div class="tech-items"><span class="tech-item">Apache Kafka</span><span class="tech-item">Redis</span><span class="tech-item">Elasticsearch</span><span class="tech-item">Prometheus</span></div></div>
+        <div class="tech-category glow-hover" data-aos="fade-up" data-aos-delay="400"><div class="category-header"><i class="fas fa-lock"></i><h3>Security & DevOps</h3></div><div class="tech-items"><span class="tech-item">Vault</span><span class="tech-item">GitOps</span><span class="tech-item">PCI-DSS</span><span class="tech-item">CI/CD</span></div></div>
       </div>
     </div>
   </section>
-  <section class="experience" id="experience">
+  
+  <section class="experience section-animate" id="experience">
     <div class="container">
-      <div class="section-header" data-aos="fade-up"><span class="section-tag">Career</span><h2 class="section-title">Experience</h2></div>
+      <div class="section-header" data-aos="fade-up"><span class="section-tag">Experience</span><h2 class="section-title">Professional Journey</h2></div>
       <div class="timeline">
         <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
           <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header"><span class="timeline-period">2023 — Present</span><span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Singapore / Hybrid</span></div>
-            <h3 class="timeline-title">Principal Engineer</h3>
-            <p class="timeline-company">Quantum Systems International</p>
-            <p class="timeline-description">Lead architect for AI-powered data orchestration platform. Managing a team of 15 engineers building real-time data pipelines with high scalability requirements.</p>
-            <div class="timeline-achievements">
-              <div class="achievement"><i class="fas fa-rocket"></i><span>250% system throughput optimization using Go concurrency patterns</span></div>
-              <div class="achievement"><i class="fas fa-coins"></i><span>40% AWS cost reduction through Spot Instances and K8s optimization</span></div>
-              <div class="achievement"><i class="fas fa-chart-line"></i><span>Reduced bug detection time from 45 min to 2 min with observability stack</span></div>
-            </div>
+          <div class="timeline-content glow-hover">
+            <div class="timeline-header"><span class="timeline-period">2022 - Present</span><span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</span></div>
+            <h3 class="timeline-title">Principal Engineer</h3><span class="timeline-company">TechCorp Indonesia</span>
+            <p class="timeline-description">Leading the architecture of a high-scale payment processing platform handling 50M+ daily transactions with 99.99% uptime.</p>
+            <div class="timeline-achievements"><div class="achievement"><i class="fas fa-rocket"></i><span>Reduced system latency by 60% through microservices optimization</span></div><div class="achievement"><i class="fas fa-users"></i><span>Led team of 15 engineers across multiple domains</span></div></div>
           </div>
         </div>
         <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
           <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header"><span class="timeline-period">2020 — 2023</span><span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</span></div>
-            <h3 class="timeline-title">Senior Cloud Architect</h3>
-            <p class="timeline-company">Fintech Horizon Asia</p>
-            <p class="timeline-description">Designed core payment system migration from monolith to microservices. Focused on data consistency and high availability for financial transactions.</p>
-            <div class="timeline-achievements">
-              <div class="achievement"><i class="fas fa-shield-halved"></i><span>99.99% availability for 50M daily transactions payment system</span></div>
-              <div class="achievement"><i class="fas fa-network-wired"></i><span>Implemented advanced Service Mesh (Istio) for inter-service security</span></div>
-              <div class="achievement"><i class="fas fa-certificate"></i><span>Led PCI-DSS Level 1 compliance certification for cloud infrastructure</span></div>
-            </div>
+          <div class="timeline-content glow-hover">
+            <div class="timeline-header"><span class="timeline-period">2020 - 2022</span><span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Singapore</span></div>
+            <h3 class="timeline-title">Senior Software Engineer</h3><span class="timeline-company">FinTech Global</span>
+            <p class="timeline-description">Designed and implemented real-time fraud detection systems processing 10M+ events per second.</p>
+            <div class="timeline-achievements"><div class="achievement"><i class="fas fa-shield-alt"></i><span>Decreased fraud attempts by 85% with ML-based detection</span></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="projects" id="projects">
+  
+  <section class="projects section-animate" id="projects">
     <div class="container">
       <div class="section-header" data-aos="fade-up"><span class="section-tag">Portfolio</span><h2 class="section-title">Featured Projects</h2></div>
       <div class="projects-grid">
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100"><div class="project-image"><img src="img/web7.png" alt="Engxzu Project" loading="lazy"><div class="project-overlay"><a href="https://engxzu.netlify.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Web Application</span><h3 class="project-title">Engxzu Platform</h3><p class="project-description">Full-stack web platform with modern design and responsive interface.</p><div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div></div></div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200"><div class="project-image"><img src="img/kfood.png" alt="Korean Food Project" loading="lazy"><div class="project-overlay"><a href="https://elvirafirmansyah.github.io/Korean-Food/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Landing Page</span><h3 class="project-title">Korean Food Gallery</h3><p class="project-description">Interactive landing page showcasing Korean cuisine with elegant visuals.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="400"><div class="project-image"><img src="img/belaxcy.png" alt="Belxacy Design" loading="lazy"><div class="project-overlay"><a href="https://dribbble.com/shots/16310150-Belxacy-Find-your-Perfect-Color" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">UI Design</span><h3 class="project-title">Belxacy Color Picker</h3><p class="project-description">Modern UI design for color selection tool with intuitive interface.</p><div class="project-tags"><span>Figma</span><span>UI/UX</span><span>Design</span></div></div></div>
+        <div class="project-card glow-hover img-zoom" data-aos="fade-up" data-aos-delay="100"><div class="project-image"><img src="img/web7.png" alt="Engxzu Project" loading="lazy"><div class="project-overlay"><a href="https://engxzu.netlify.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Web Application</span><h3 class="project-title">Engxzu Platform</h3><p class="project-description">Full-stack web platform with modern design and responsive interface.</p><div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div></div></div>
+        <div class="project-card glow-hover img-zoom" data-aos="fade-up" data-aos-delay="200"><div class="project-image"><img src="img/kfood.png" alt="Korean Food Project" loading="lazy"><div class="project-overlay"><a href="https://antono4.github.io/korean-food/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">Landing Page</span><h3 class="project-title">Korean Food Gallery</h3><p class="project-description">Interactive landing page showcasing Korean cuisine with elegant visuals.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></div>
+        <div class="project-card glow-hover img-zoom" data-aos="fade-up" data-aos-delay="400"><div class="project-image"><img src="img/belaxcy.png" alt="Belxacy Design" loading="lazy"><div class="project-overlay"><a href="https://dribbble.com/shots/16310150-Belxacy-Find-your-Perfect-Color" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div></div><div class="project-content"><span class="project-category">UI Design</span><h3 class="project-title">Belxacy Color Picker</h3><p class="project-description">Modern UI design for color selection tool with intuitive interface.</p><div class="project-tags"><span>Figma</span><span>UI/UX</span><span>Design</span></div></div></div>
       </div>
     </div>
   </section>
-  <section class="contact" id="contact">
+  
+  <section class="contact section-animate" id="contact">
     <div class="container">
       <div class="contact-wrapper">
         <div class="contact-info" data-aos="fade-right">
@@ -152,15 +503,15 @@
           <h2 class="section-title">Let's Work Together</h2>
           <p class="contact-text">I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!</p>
           <div class="contact-details">
-            <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-data"><span class="contact-label">Email</span><a href="mailto:hello@antono.dev" class="contact-value">hello@antono.dev</a></div></div>
-            <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-data"><span class="contact-label">Phone</span><span class="contact-value">+62 21 026 2026</span></div></div>
-            <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-data"><span class="contact-label">Location</span><span class="contact-value">Jakarta Digital District</span></div></div>
+            <div class="contact-item glow-hover"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-data"><span class="contact-label">Email</span><a href="mailto:hello@antono.dev" class="contact-value">hello@antono.dev</a></div></div>
+            <div class="contact-item glow-hover"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-data"><span class="contact-label">Phone</span><span class="contact-value">+62 21 026 2026</span></div></div>
+            <div class="contact-item glow-hover"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-data"><span class="contact-label">Location</span><span class="contact-value">Jakarta Digital District</span></div></div>
           </div>
           <div class="social-links">
-            <a href="https://github.com/antono4" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/antono" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://twitter.com/antonocode" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://dribbble.com" target="_blank" class="social-link" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="https://github.com/antono4" target="_blank" class="social-link glow-hover" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/antono" target="_blank" class="social-link glow-hover" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/antonocode" target="_blank" class="social-link glow-hover" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://dribbble.com" target="_blank" class="social-link glow-hover" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
           </div>
         </div>
         <div class="contact-form-wrapper" data-aos="fade-left">
@@ -169,40 +520,266 @@
             <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
             <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="Project inquiry"></div>
             <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
-            <button type="submit" class="btn btn-primary btn-submit"><span>Send Message</span><i class="fas fa-paper-plane"></i></button>
+            <button type="submit" class="btn btn-primary btn-submit btn-magnetic ripple"><span>Send Message</span><i class="fas fa-paper-plane"></i></button>
           </form>
           <div class="form-status" id="formStatus"></div>
         </div>
       </div>
     </div>
   </section>
+  
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-brand"><a href="#" class="logo">A<span class="logo-accent">.</span></a><p>Crafting the next standard in distributed systems.</p></div>
-        <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+        <div class="footer-brand"><a href="#" class="logo glow-text">A<span class="logo-accent">.</span></a><p>Crafting the next standard in distributed systems.</p></div>
+        <div class="footer-links"><a href="#home" class="animated-underline">Home</a><a href="#about" class="animated-underline">About</a><a href="#experience" class="animated-underline">Experience</a><a href="#projects" class="animated-underline">Projects</a><a href="#contact" class="animated-underline">Contact</a></div>
         <div class="footer-bottom"><p>&copy; 2024 Antono. All rights reserved.</p><div class="footer-status"><span class="status-indicator"></span><span>Systems operational</span></div></div>
       </div>
     </div>
   </footer>
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({duration:800,easing:'ease-out',once:true,offset:100});
-    const mobileToggle=document.getElementById('mobileToggle'),navMenu=document.getElementById('navMenu');
-    mobileToggle.addEventListener('click',()=>{mobileToggle.classList.toggle('active');navMenu.classList.toggle('active');});
-    document.querySelectorAll('.nav-link').forEach(link=>{link.addEventListener('click',()=>{mobileToggle.classList.remove('active');navMenu.classList.remove('active');});});
-    const navbar=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50);});
-    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const target=document.querySelector(this.getAttribute('href'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}});});
-    const contactForm=document.getElementById('contactForm'),formStatus=document.getElementById('formStatus');
-    contactForm.addEventListener('submit',async(e)=>{e.preventDefault();const submitBtn=contactForm.querySelector('.btn-submit');
-    submitBtn.innerHTML='<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';submitBtn.disabled=true;
-    await new Promise(resolve=>setTimeout(resolve,1500));
-    formStatus.innerHTML='<div class="success-message"><i class="fas fa-check-circle"></i><span>Message sent successfully! I will get back to you soon.</span></div>';
-    formStatus.classList.add('show');contactForm.reset();
-    submitBtn.innerHTML='<span>Send Message</span><i class="fas fa-paper-plane"></i>';submitBtn.disabled=false;
-    setTimeout(()=>{formStatus.classList.remove('show');},5000);});
+    // Initialize AOS
+    AOS.init({duration:800,easing:'ease-out',once:false,offset:100, mirror: true});
+    
+    // Loading screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 2500);
+    });
+    
+    // Particle system
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.color = `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.2})`;
+      }
+      
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+      
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    function initParticles() {
+      particles = [];
+      const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 15000));
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+    
+    function connectParticles() {
+      const maxDistance = 150;
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < maxDistance) {
+            const opacity = 1 - (distance / maxDistance);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${opacity * 0.3})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      
+      connectParticles();
+      requestAnimationFrame(animateParticles);
+    }
+    
+    initParticles();
+    animateParticles();
+    
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursorFollower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX - 10 + 'px';
+      cursor.style.top = e.clientY - 10 + 'px';
+      
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX - 4 + 'px';
+        cursorFollower.style.top = e.clientY - 4 + 'px';
+      }, 50);
+    });
+    
+    document.querySelectorAll('a, button, .btn, .project-card, .tech-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+    
+    // Progress bar
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollTop / docHeight;
+      progressBar.style.transform = `scaleX(${progress})`;
+    });
+    
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const animateCounter = (counter) => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      
+      updateCounter();
+    };
+    
+    const observerOptions = { threshold: 0.5 };
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+    
+    // Section reveal on scroll
+    const sections = document.querySelectorAll('.section-animate');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => sectionObserver.observe(section));
+    
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('.btn-submit');
+      submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+      submitBtn.disabled = true;
+      
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      formStatus.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i><span>Message sent successfully! I will get back to you soon.</span></div>';
+      formStatus.classList.add('show');
+      contactForm.reset();
+      submitBtn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+      submitBtn.disabled = false;
+      setTimeout(() => { formStatus.classList.remove('show'); }, 5000);
+    });
+    
+    // Magnetic button effect
+    document.querySelectorAll('.btn-magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+    
+    // Parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      document.querySelectorAll('.orb').forEach((orb, i) => {
+        const speed = (i + 1) * 0.1;
+        orb.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
   </script>
 </body>
 </html>
-<!-- Build: Fri Jul 10 07:23:26 UTC 2026 -->
