@@ -1,1 +1,26 @@
-Last updated: 2026-08-20 23:18:06 WIB
+# portofolio
+
+
+
+## 📋 Overview
+
+This repository contains **47 files** and is built with the following technologies:
+
+HTML, CSS
+
+## 🚀 Quick Start
+
+## ✨ Features
+
+- 📝 Auto-generated documentation
+
+## 🛠️ Technologies
+
+HTML, CSS
+
+## 📄 License
+
+MIT License
+
+---
+*Last updated: 2026-08-20 23:22:14 WIB*
